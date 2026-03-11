@@ -1,0 +1,21 @@
+[project]
+name = "rp2040code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyserial>=3.5",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.1.0",
+    "devtools>=0.12.2",
+    "isort>=7.0.0",
+    "pytest>=9.0.2",
+    "ruff>=0.14.13",
+]
+
+[tool.ruff.format]
+exclude = ["adafruit-*", "lib/*", ".venv/*"]
