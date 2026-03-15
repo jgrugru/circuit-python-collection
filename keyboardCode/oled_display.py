@@ -5,7 +5,12 @@ import adafruit_ssd1306
 from kmk.kmk_keyboard import KMKKeyboard
 from kmk.extensions import Extension
 
-
+"""
+required libs
+adafruit_ssd1306
+adafruit_bus_device
+adafruit_register
+adafruit_framebuf - needed on rp2040 board"""
 # --- Dummy matrix scanner: no keys, no scanning ---
 class NoMatrix:
     coord_mapping = []
