@@ -13,6 +13,7 @@ from kmk.keys import KC
 # --- No physical keyboard matrix ---
 class NoMatrix:
     coord_mapping = []
+
     def scan_for_changes(self):
         return None
 
@@ -62,13 +63,26 @@ class OledVolume(Extension):
         return None
 
     # no-op required hooks
-    def on_runtime_enable(self, keyboard): pass
-    def on_runtime_disable(self, keyboard): pass
-    def after_matrix_scan(self, keyboard): return None
-    def before_hid_send(self, keyboard): pass
-    def after_hid_send(self, keyboard): pass
-    def on_powersave_enable(self, keyboard): pass
-    def on_powersave_disable(self, keyboard): pass
+    def on_runtime_enable(self, keyboard):
+        pass
+
+    def on_runtime_disable(self, keyboard):
+        pass
+
+    def after_matrix_scan(self, keyboard):
+        return None
+
+    def before_hid_send(self, keyboard):
+        pass
+
+    def after_hid_send(self, keyboard):
+        pass
+
+    def on_powersave_enable(self, keyboard):
+        pass
+
+    def on_powersave_disable(self, keyboard):
+        pass
 
 
 keyboard = KMKKeyboard()
@@ -83,14 +97,15 @@ oled_ext = OledVolume()
 keyboard.extensions.append(oled_ext)
 
 # Pot -> volume
-VOL_STEPS = 30        # change feel: higher = more sensitive
+VOL_STEPS = 30  # change feel: higher = more sensitive
 MAX_TAPS_PER_UPDATE = 4
 last_step = None
+
 
 def pot_volume_handler(state):
     global last_step
 
-    pos = state.position          # 0..127
+    pos = state.position  # 0..127
     step = int((pos * VOL_STEPS) / 127)
 
     # update OLED with the knob level immediately

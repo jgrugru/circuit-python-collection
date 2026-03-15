@@ -23,6 +23,7 @@ GREEN = "\033[92m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
 
+
 def resolve_inputs(args: Iterable[str]) -> list[Path]:
     files = []
 
@@ -46,7 +47,7 @@ def resolve_inputs(args: Iterable[str]) -> list[Path]:
 
 
 def main():
-    output_dir = Path("output")
+    output_dir = Path("output_pixel_coords")
     if not output_dir.is_dir():
         output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -64,12 +65,11 @@ def main():
             """This block of code loops through each pixel in the png.
             If it finds that the transparency value (a)
             is not 0, it will write the coordinates to a coords.txt file"""
-            im = im.convert('RGBA')
+            im = im.convert("RGBA")
             pix = im.load()
             width, height = im.size
             output_file = output_dir / f"{file.stem}.txt"
             with open(output_file, mode="w") as f:
-
                 for x in range(width):
                     for y in range(height):
                         # RGBA tuple
@@ -78,6 +78,7 @@ def main():
                         if a != 0:
                             f.write(f"{x},{y}\n")
             print(f"{GREEN}Successfully saved {output_file}{RESET}")
-    
+
+
 if __name__ == "__main__":
     main()

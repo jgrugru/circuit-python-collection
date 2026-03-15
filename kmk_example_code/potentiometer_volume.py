@@ -1,4 +1,3 @@
-
 import board
 
 from kmk.kmk_keyboard import KMKKeyboard
@@ -16,14 +15,15 @@ class NoMatrix:
 
 
 keyboard = KMKKeyboard()
-keyboard.matrix = NoMatrix()   # <- prevents KMK from trying to init a real matrix
-keyboard.coord_mapping = []    # no keys
-keyboard.keymap = [[]]         # KMK requires a keymap to exist
+keyboard.matrix = NoMatrix()  # <- prevents KMK from trying to init a real matrix
+keyboard.coord_mapping = []  # no keys
+keyboard.keymap = [[]]  # KMK requires a keymap to exist
 
 keyboard.extensions.append(MediaKeys())
 
-VOL_STEPS = 30   # tweak: higher = more sensitive, lower = less spammy
+VOL_STEPS = 30  # tweak: higher = more sensitive, lower = less spammy
 last_step = None
+
 
 def pot_volume_handler(state):
     global last_step

@@ -11,6 +11,8 @@ adafruit_ssd1306
 adafruit_bus_device
 adafruit_register
 adafruit_framebuf - needed on rp2040 board"""
+
+
 # --- Dummy matrix scanner: no keys, no scanning ---
 class NoMatrix:
     coord_mapping = []
@@ -33,14 +35,29 @@ class OledTest(Extension):
         self.oled.show()
 
     # --- required no-op methods ---
-    def on_runtime_enable(self, keyboard): pass
-    def on_runtime_disable(self, keyboard): pass
-    def before_matrix_scan(self, keyboard): return None
-    def after_matrix_scan(self, keyboard): return None
-    def before_hid_send(self, keyboard): pass
-    def after_hid_send(self, keyboard): pass
-    def on_powersave_enable(self, keyboard): pass
-    def on_powersave_disable(self, keyboard): pass
+    def on_runtime_enable(self, keyboard):
+        pass
+
+    def on_runtime_disable(self, keyboard):
+        pass
+
+    def before_matrix_scan(self, keyboard):
+        return None
+
+    def after_matrix_scan(self, keyboard):
+        return None
+
+    def before_hid_send(self, keyboard):
+        pass
+
+    def after_hid_send(self, keyboard):
+        pass
+
+    def on_powersave_enable(self, keyboard):
+        pass
+
+    def on_powersave_disable(self, keyboard):
+        pass
 
 
 keyboard = KMKKeyboard()
