@@ -1,4 +1,5 @@
 output_*
+# completed_animations/*
 pixel_art
 *.parquet
 *.sh
