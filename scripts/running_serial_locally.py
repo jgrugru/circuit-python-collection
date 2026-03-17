@@ -1,6 +1,6 @@
 import serial
 
-PORT = "/dev/tty.usbmodem1101"  # change this
+PORT = "/dev/tty.usbmodem3101"  # change this
 ser = serial.Serial(PORT, 115200, timeout=1)
 ser.reset_input_buffer()
 
