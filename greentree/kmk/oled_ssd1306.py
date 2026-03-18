@@ -118,7 +118,6 @@ class OLED(Extension):
             for frame in self.button_press_animation:
                 self.i2c.writeto(0x3C, frame)
             self.i2c.writeto(0x3C, self.layer_1_filepath)
-            # time.sleep(0.7)
 
     def before_hid_send(self, keyboard):
         pass
